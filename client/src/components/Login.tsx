@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -62,7 +63,12 @@ export default function Login() {
         <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
           Login
         </Button>
+        <LinkContainer to="/">
+          <Button variant="secondary">Cancel</Button>
+        </LinkContainer>
       </Form>
+      <br></br>
+      <a href="/register/">Create a new account</a>
     </>
   );
 }
