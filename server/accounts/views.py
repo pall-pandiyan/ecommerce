@@ -1,9 +1,16 @@
+# importing python module
 import json
 
+# importing python components
 from django.contrib.auth import login, logout, get_user_model
 from django.shortcuts import redirect
+from rest_framework import generics
 from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+
+# importing our project components
+from .serializers import RegisterSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -31,3 +38,9 @@ def logout_view(request):
         })
     logout(request=request)
     return redirect("accounts:logout")    
+
+
+class RegisterView(generics.CreateAPIView):
+    queryset = get_user_model().objects.all()
+    permission_classes = (AllowAny,)
+    serializer_class = RegisterSerializer
