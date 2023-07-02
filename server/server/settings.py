@@ -132,8 +132,7 @@ PIP_APPS = [
 ]
 OWN_APPS = [
     'accounts',
-    'products',
-    'reviews'
+    'ecommerce',
 ]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
