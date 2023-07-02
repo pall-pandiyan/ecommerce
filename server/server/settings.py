@@ -141,7 +141,7 @@ MIDDLEWARE = MIDDLEWARE + [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:3000"
+    "http://ecommerce_client:5173"
 ]
 
 # configuring media

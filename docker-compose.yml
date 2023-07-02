@@ -1,8 +1,8 @@
 services:
   server:
     build: ./server
-    image: ecommmerce_server
-    container_name: ecommmerce_server
+    image: ecommerce_server
+    container_name: ecommerce_server
     volumes:
       - ./server:/server
     working_dir: /server
@@ -12,7 +12,7 @@ services:
 
   client:
     image: node:latest
-    container_name: ecommmerce_client
+    container_name: ecommerce_client
     volumes:
       - ./client:/client
     working_dir: /client
