@@ -12,20 +12,22 @@ export default function Login() {
     console.log("username:" + username);
     console.log("password:" + password);
 
-    const loginCall = {
-      method: "post",
-      url: "http://ecommerce_server:8000/accounts/login/",
-      data: {
-        username: username,
-        password: password,
-      },
+    const loginGet = {
+      method: "get",
+      // method: "post",
+      url: "http://172.25.0.2:8000/accounts/login/",
+      // data: {
+      //   username: username,
+      //   password: password,
+      // },
     };
-    axios(loginCall)
+    axios(loginGet)
       .then((result) => {
-        console.log("result:" + result);
+        console.log(result);
+        console.log(result.data.status);
       })
       .catch((err) => {
-        console.log("error:" + err);
+        console.log(err);
       });
   };
 

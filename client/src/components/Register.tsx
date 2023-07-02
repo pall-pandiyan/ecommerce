@@ -8,7 +8,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [register, setRegister] = useState(false);
+  // const [register, setRegister] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
