@@ -13,3 +13,8 @@ echo wheel==0.38.4 >> req.txt
 
 ### install the latest version of django (which is django==4.2.4)
 pip install django
+pip freeze > requirements.txt
+echo django==4.2.4 >> req.txt
+
+### start a new project named ecommerce
+django-admin startproject ecommerce
