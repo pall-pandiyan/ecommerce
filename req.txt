@@ -2,3 +2,6 @@ pip==23.2.1
 setuptools==66.1.1
 wheel==0.38.4
 django==4.2.4
+python-dotenv==1.0.0
+django-extensions==3.2.3
+werkzeug==2.3.6

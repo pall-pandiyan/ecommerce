@@ -1,5 +1,5 @@
-.venv/
-.vscode/
+ecommerce/.venv/
+ecommerce/.vscode/
 
 *.env
 *.db
