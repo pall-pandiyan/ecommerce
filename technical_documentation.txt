@@ -11,3 +11,5 @@ echo pip==23.2.1 >> req.txt
 echo setuptools==66.1.1 >> req.txt
 echo wheel==0.38.4 >> req.txt
 
+### install the latest version of django (which is django==4.2.4)
+pip install django
