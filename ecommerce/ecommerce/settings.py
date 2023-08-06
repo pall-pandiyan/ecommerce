@@ -131,6 +131,8 @@ ALLOWED_HOSTS = ["*"]
 DEBUG = True
 
 # registering apps
-PIP_APPS = []
+PIP_APPS = [
+    "django_extensions",
+]
 OWN_APPS = []
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
