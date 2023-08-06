@@ -18,3 +18,9 @@ echo django==4.2.4 >> req.txt
 
 ### start a new project named ecommerce
 django-admin startproject ecommerce
+
+### install python-dotenv for importing environment files when working locally
+pip install python-dotenv
+pip freeze > requirements.txt
+echo python-dotenv==1.0.0 >> req.txt
+
