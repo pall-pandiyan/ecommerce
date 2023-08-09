@@ -124,6 +124,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 """Custom settings"""
+import os
+
 # allowed hosts
 ALLOWED_HOSTS = ["*"]
 
@@ -148,3 +150,11 @@ PIP_APPS = [
 ]
 OWN_APPS = []
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
+
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+
+PDF_HEADER_TEMPLATE_NAME = "pdf_header.html"
+PDF_FOOTER_TEMPLATE_NAME = "pdf_footer.html"
+
+WKHTMLTOPDF_PATH = r"/usr/bin/wkhtmltopdf"
