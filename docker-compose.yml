@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:15
+    container_name: ecommerce_db
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - db:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+  
+  app:
+    image: ecommerce-image:1.0
+    container_name: ecommerce_app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+
+volumes:
+  db: {}
