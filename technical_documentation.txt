@@ -24,3 +24,27 @@ pip install python-dotenv
 pip freeze > requirements.txt
 echo python-dotenv==1.0.0 >> req.txt
 
+### install django-extensions==3.2.3
+pip install django-extensions==3.2.3
+pip freeze > requirements.txt
+echo django-extensions==3.2.3 >> req.txt
+
+### install werkzeug==2.3.6
+pip install werkzeug==2.3.6
+pip freeze > requirements.txt
+echo werkzeug==2.3.6 >> req.txt
+
+### install psycopg2-binary==2.9.7
+pip install psycopg2-binary==2.9.7
+pip freeze > requirements.txt
+echo psycopg2-binary==2.9.7 >> req.txt
+
+### create Dockerfile to build a custom docker image
+#### the base image will be python-3.11
+#### copy all the source code to the docker's /app
+#### install pip packages from requirements.txt
+#### add entrypoint.sh which migrate and run django server
+#### run the entrypoint.sh script as CMD
+
+### create docker-compose.yml file to run docker containers
+#### 
