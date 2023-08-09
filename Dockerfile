@@ -8,5 +8,5 @@ COPY . .
 RUN pip --no-cache-dir install -U pip && \
     pip --no-cache-dir install -r requirements.txt
 
-ENTRYPOINT [ "bash" ]
-CMD [ "-c", "entrypoint.sh" ]
+CMD ${PROJECT_DIR}/entrypoint.sh
+ 
