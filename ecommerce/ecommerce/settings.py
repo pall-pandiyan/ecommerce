@@ -130,6 +130,18 @@ ALLOWED_HOSTS = ["*"]
 # debug flag
 DEBUG = True
 
+# database
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "ecommerce",
+        "USER": "postgres",
+        "PASSWORD": "password",
+        "HOST": "ecommerce_db",
+        "PORT": "5432",
+    }
+}
+
 # registering apps
 PIP_APPS = [
     "django_extensions",

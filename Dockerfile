@@ -9,4 +9,3 @@ RUN pip --no-cache-dir install -U pip && \
     pip --no-cache-dir install -r requirements.txt
 
 CMD ${PROJECT_DIR}/entrypoint.sh
- 
