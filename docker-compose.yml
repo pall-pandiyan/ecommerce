@@ -10,7 +10,7 @@ services:
       - "5432:5432"
   
   app:
-    image: ecommerce-image:1.1
+    image: ecommerce-image:1.2
     build: .
     container_name: ecommerce_app
     volumes:
@@ -18,5 +18,17 @@ services:
     ports:
       - "8000:8000"
 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: ecommerce_pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+
 volumes:
   db: {}
+  pgadmin: {}
