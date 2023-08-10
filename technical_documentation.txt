@@ -47,4 +47,6 @@ echo psycopg2-binary==2.9.7 >> req.txt
 #### run the entrypoint.sh script as CMD
 
 ### create docker-compose.yml file to run docker containers
-#### 
+#### created services for db, app and pgadmin4
+
+### 
