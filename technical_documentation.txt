@@ -49,4 +49,18 @@ echo psycopg2-binary==2.9.7 >> req.txt
 ### create docker-compose.yml file to run docker containers
 #### created services for db, app and pgadmin4
 
-### 
+### to build and run the pod
+#### podman-compose up -d
+
+### create a superuser to access the admin interface
+#### podman exec -it ecommerce_app bash
+#### cd ecommerce
+#### python manage.py createsuperuser
+
+### added some apps
+#### python manage.py startapp accounts
+#### python manage.py startapp categories
+#### python manage.py startapp products
+
+### added a dummy views inside the accounts.views and call it on all the app's newly created urls. Connected all the apps urls into ecommerce.urls through the include function.
+
