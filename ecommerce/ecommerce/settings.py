@@ -126,21 +126,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 """Custom settings"""
 import os
 
-# allowed hosts
 ALLOWED_HOSTS = ["*"]
-
-# debug flag
 DEBUG = True
-
-# database
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ecommerce",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "ecommerce_db",
-        "PORT": "5432",
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "PORT": int(os.environ.get("POSTGRES_PORT", 5432)),
+        "NAME": os.environ.get("POSTGRES_DATABASE_NAME"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
     }
 }
 
@@ -148,13 +143,20 @@ DATABASES = {
 PIP_APPS = [
     "django_extensions",
 ]
-OWN_APPS = []
+OWN_APPS = [
+    "accounts",
+    "categories",
+    "products",
+]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
+# default directory settings
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
+# template names
 PDF_HEADER_TEMPLATE_NAME = "pdf_header.html"
 PDF_FOOTER_TEMPLATE_NAME = "pdf_footer.html"
 
+# program path
 WKHTMLTOPDF_PATH = r"/usr/bin/wkhtmltopdf"
