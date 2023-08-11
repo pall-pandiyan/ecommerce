@@ -136,11 +136,11 @@ DEBUG = True
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ecommerce",
-        "USER": "postgres",
-        "PASSWORD": "password",
-        "HOST": "ecommerce_db",
-        "PORT": "5432",
+        "HOST": os.environ.get("POSTGRES_HOST"),
+        "PORT": os.environ.get("POSTGRES_PORT"),
+        "NAME": os.environ.get("POSTGRES_DATABASE_NAME"),
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
     }
 }
 
