@@ -143,7 +143,11 @@ DATABASES = {
 PIP_APPS = [
     "django_extensions",
 ]
-OWN_APPS = []
+OWN_APPS = [
+    "accounts",
+    "categories",
+    "products",
+]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
 # default directory settings
