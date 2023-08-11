@@ -2,32 +2,36 @@ services:
   db:
     image: postgres:15
     container_name: ecommerce_db
-    environment:
-      - POSTGRES_PASSWORD=password
+    env_file:
+      - ecommerce/.env
     volumes:
-      - db:/var/lib/postgresql
+      - db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    restart: unless-stopped
   
   app:
     image: ecommerce-image:1.2
     build: .
     container_name: ecommerce_app
+    env_file:
+      - ecommerce/.env
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+    restart: unless-stopped
 
   pgadmin:
     image: dpage/pgadmin4
     container_name: ecommerce_pgadmin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@domain.com
-      - PGADMIN_DEFAULT_PASSWORD=admin
+    env_file:
+      - ecommerce/.env
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
       - "5050:80"
+    restart: unless-stopped
 
 volumes:
   db: {}
