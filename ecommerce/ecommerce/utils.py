@@ -63,7 +63,8 @@ def get_js_page_source(url):
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
+            # user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36"
+            user_agent=ua_obj.get_a_random_ua()
         )
         page = context.new_page()
         # cookie_file = open("./cookies.json")
