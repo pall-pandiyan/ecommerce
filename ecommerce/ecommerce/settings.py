@@ -145,14 +145,12 @@ PIP_APPS = [
 ]
 OWN_APPS = [
     "accounts",
-    "categories",
-    "products",
 ]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
 # default directory settings
-LOG_DIR = os.path.join(BASE_DIR, "logs")
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+PROJECT_CORE_DIR = Path(__file__).resolve().parent
+LOG_DIR = os.path.join(PROJECT_CORE_DIR, "logs")
 
 # template names
 PDF_HEADER_TEMPLATE_NAME = "pdf_header.html"
