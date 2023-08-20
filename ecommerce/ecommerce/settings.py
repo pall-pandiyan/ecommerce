@@ -123,17 +123,27 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-"""Custom settings"""
+"""
+#################################################################
+# Custom settings
+#################################################################
+"""
 import os
 
 ALLOWED_HOSTS = ["*"]
-DEBUG = True
+
+if os.environ.get("PRODUCTION_SERVER") == "0":
+    DEBUG = True
+else:
+    DEBUG = False
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "HOST": os.environ.get("POSTGRES_HOST"),
         "PORT": int(os.environ.get("POSTGRES_PORT", 5432)),
-        "NAME": os.environ.get("POSTGRES_DATABASE_NAME"),
+        "NAME": os.environ.get("POSTGRES_DB"),
         "USER": os.environ.get("POSTGRES_USER"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
     }
@@ -144,15 +154,19 @@ PIP_APPS = [
     "django_extensions",
 ]
 OWN_APPS = [
-    "accounts",
-    "categories",
-    "products",
+    "accounts.apps.AccountsConfig",
+    "store.apps.StoreConfig",
 ]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
+# static folder settings
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
+
+
 # default directory settings
-LOG_DIR = os.path.join(BASE_DIR, "logs")
-TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
+PROJECT_CORE_DIR = Path(__file__).resolve().parent
+LOG_DIR = os.path.join(PROJECT_CORE_DIR, "logs")
 
 # template names
 PDF_HEADER_TEMPLATE_NAME = "pdf_header.html"

@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 def main():
     # if there is not DOCKER_OVERRIDE load environment varriables from .env file
     if not os.environ.get("DOCKER_OVERRIDE"):
-        load_dotenv()
+        load_dotenv("local.env")
 
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ecommerce.settings")

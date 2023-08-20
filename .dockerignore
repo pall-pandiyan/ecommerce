@@ -1,9 +1,0 @@
-ecommerce/.venv/
-ecommerce/.vscode/
-
-*.env
-*.db
-*.log
-*.pyc
-*.py~
-*.sqlite3

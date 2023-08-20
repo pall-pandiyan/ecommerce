@@ -9,3 +9,4 @@ psycopg2-binary==2.9.7
 playwright==1.36.0
 pdfkit==1.0.0
 requests==2.31.0
+gunicorn==21.2.0
