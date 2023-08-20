@@ -5,7 +5,7 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        ordering = "id"
+        ordering = ["id"]
         verbose_name_plural = "Categories"
 
     def __str__(self) -> str:
@@ -17,7 +17,7 @@ class SubCategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = "id"
+        ordering = ["id"]
         verbose_name_plural = "Sub Categories"
 
     def __str__(self) -> str:
@@ -31,7 +31,7 @@ class Currency(models.Model):
     conversion_rate_to_inr = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
-        ordering = "id"
+        ordering = ["id"]
         verbose_name_plural = "Currencies"
 
     def __str__(self) -> str:
@@ -59,7 +59,7 @@ class Product(models.Model):
         return self.slug
 
     class Meta:
-        ordering = "-modified_at"
+        ordering = ["-modified_at"]
         verbose_name_plural = "Products"
 
 
@@ -67,7 +67,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        ordering = "id"
+        ordering = ["id"]
         verbose_name_plural = "Tags"
 
     def __str__(self) -> str:
@@ -79,7 +79,7 @@ class TaggedProduct(models.Model):
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = "id"
+        ordering = ["id"]
         verbose_name_plural = "Tagged Products"
 
     def __str__(self) -> str:
