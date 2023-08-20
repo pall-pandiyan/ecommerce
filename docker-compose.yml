@@ -1,11 +1,14 @@
 services:
   nginx:
-    image: nginx:1.24.0
+    image: ecommerce_nginx:1.0.0
+    build: ./nginx
     container_name: ecommerce_nginx
+    init: true
     restart: unless-stopped
     volumes:
       - static_files:/app/static/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/logrotate_nginx.conf:/etc/logrotate.d/nginx
       - ./nginx/log/:/var/log/nginx/
     ports:
       - "80:80"
@@ -13,9 +16,10 @@ services:
       - app
   
   app:
-    image: ecommerce-image:1.0.4
+    image: ecommerce_app:1.0.4
     build: ./ecommerce
     container_name: ecommerce_app
+    init: true
     env_file:
       - ecommerce/.env
     working_dir: /app
@@ -32,6 +36,7 @@ services:
   db:
     image: postgres:15
     container_name: ecommerce_db
+    init: true
     env_file:
       - ecommerce/.env
     volumes:
@@ -41,8 +46,9 @@ services:
     restart: unless-stopped
   
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:7.5
     container_name: ecommerce_pgadmin
+    init: true
     env_file:
       - ecommerce/.env
     volumes:
