@@ -144,7 +144,8 @@ PIP_APPS = [
     "django_extensions",
 ]
 OWN_APPS = [
-    "accounts",
+    "accounts.apps.AccountsConfig",
+    "store.apps.StoreConfig",
 ]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
 
