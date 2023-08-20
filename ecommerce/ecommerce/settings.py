@@ -124,14 +124,20 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 """
-##################################################################################
+#################################################################
 # Custom settings
-##################################################################################
+#################################################################
 """
 import os
 
 ALLOWED_HOSTS = ["*"]
-DEBUG = True
+
+if os.environ.get("PRODUCTION_SERVER") == "0":
+    DEBUG = True
+else:
+    DEBUG = False
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",

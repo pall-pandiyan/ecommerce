@@ -13,7 +13,7 @@ services:
       - app
   
   app:
-    image: ecommerce-image:1.0.3
+    image: ecommerce-image:1.0.4
     build: ./ecommerce
     container_name: ecommerce_app
     env_file:
