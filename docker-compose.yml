@@ -13,13 +13,15 @@ services:
       - app
   
   app:
-    image: ecommerce-image:1.2
-    build: .
+    image: ecommerce-image:1.0.3
+    build: ./ecommerce
     container_name: ecommerce_app
     env_file:
       - ecommerce/.env
+    working_dir: /app
+    command: ./entrypoint.sh
     volumes:
-      - .:/app
+      - ./ecommerce/:/app
       - static_files:/app/static
     ports:
       - "8000:8000"

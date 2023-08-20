@@ -123,7 +123,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-"""Custom settings"""
+"""
+##################################################################################
+# Custom settings
+##################################################################################
+"""
 import os
 
 ALLOWED_HOSTS = ["*"]
@@ -133,7 +137,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "HOST": os.environ.get("POSTGRES_HOST"),
         "PORT": int(os.environ.get("POSTGRES_PORT", 5432)),
-        "NAME": os.environ.get("POSTGRES_DATABASE_NAME"),
+        "NAME": os.environ.get("POSTGRES_DB"),
         "USER": os.environ.get("POSTGRES_USER"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
     }
@@ -148,6 +152,11 @@ OWN_APPS = [
     "store.apps.StoreConfig",
 ]
 INSTALLED_APPS = INSTALLED_APPS + PIP_APPS + OWN_APPS
+
+# static folder settings
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
+
 
 # default directory settings
 PROJECT_CORE_DIR = Path(__file__).resolve().parent
